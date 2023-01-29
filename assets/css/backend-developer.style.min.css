@@ -60,6 +60,11 @@
     --widget-bg: #131617;
 }
 
+::-webkit-scrollbar {width: 8px;}
+::-webkit-scrollbar-track {background: var(--bg-light);}
+::-webkit-scrollbar-thumb {background: var(--primary-color);}
+::-webkit-scrollbar-thumb:hover {background: var(--primary-color);}
+
 .noscroll {
     overflow: hidden;
     height: 100vh;

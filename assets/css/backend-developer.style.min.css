@@ -2712,3 +2712,38 @@ div#small-dialog iframe {
 .mode-container i {
     cursor: pointer;
 }
+
+/** alert-notify **/
+#alert-notify {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 0.6rem 2rem;
+    display: flex;
+    z-index: 999;
+}
+#alert-notify #alert-notify-container {
+    margin: auto;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#alert-notify #alert-notify-container > * {
+    margin: 0.4rem;
+}
+#alert-notify #alert-notify-container p {
+    line-height: 1.4rem;
+}
+#alert-notify #alert-notify-container a {
+    text-decoration: none;
+}
+#alert-notify #alert-notify-container a:hover {
+    opacity: 0.9;
+}
+#alert-notify #alert-notify-container #alert-notify-button {
+    padding: 0.5rem 1rem;
+    margin-left: auto;
+}
+
+/** //alert-notify **/

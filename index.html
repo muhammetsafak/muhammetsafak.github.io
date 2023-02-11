@@ -762,5 +762,34 @@
 <!-- bootstrap js -->
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/alert-notify.js"></script>
+<script>
+  $(function(){
+    if (localStorage.getItem('theme') !== 'dark') {
+      $('.gg-moon').click();
+    }
+    $.alertNotify({
+        name: "maras-depremi-yas",
+        message: "Kahramanmaraş da yaşanan deprem afetinden dolayı sitemizi karartıyor ve sizi de bağış yapmaya davet ediyoruz!",
+        mainStyle: {
+          background: "#F9F7FE",
+          color: "#222",
+          "border-top": "3px solid #8e43e7",
+        },
+        messageStyle: {
+          color: "#8e43e7"
+        },
+        btnClass: "btn-danger",
+        btnLabel: "Bağış Yap",
+        btnStyle: {},
+        btnOnClick: function () {
+          window.open('https://www.afad.gov.tr/deprem-bagislari');
+        },
+        cancelBtn: true,
+        cancelBtnLabel: 'Kapat',
+        cancelBtnClass: 'btn-secondary',
+        cookieTTL: 365
+    });
+  });
+</script>
 </body>
 </html>

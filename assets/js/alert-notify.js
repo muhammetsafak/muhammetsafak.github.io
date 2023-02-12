@@ -53,13 +53,13 @@
 
         button.on("click", (e) => {
             e.preventDefault();
-            banner.remove();
+            bannerHide();
             setCookie("cookie-alert-notify-" + settings.name, 1, settings.lifetime);
             settings.btnOnClick();
         });
         cancelBtn.on('click', (e) => {
             e.preventDefault();
-            banner.remove();
+            bannerHide();
             setCookie("cookie-alert-notify-" + settings.name, 1, settings.lifetime);
         })
         function getCookie(name) {
@@ -81,8 +81,19 @@
             const date = new Date();
             date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
             const expires = "expires=" + date.toUTCString();
-            document.cookie =
+            //document.cookie =
                 name + "=" + value + ";" + expires + ";path=/;Secure";
+        }
+
+        function bannerHide()
+        {
+            banner.hide({
+                duration: 7500,
+                easing: "slow",
+                complete: function() {
+                    banner.remove();
+                }
+            });
         }
     };
 })(jQuery);

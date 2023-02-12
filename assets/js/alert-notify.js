@@ -25,10 +25,10 @@
             "<p id='alert-notify-message'>" + settings.message + "</p>"
         );
         const button = $(
-            "<a id='alert-notify-button' href='#' class='btn" + (settings.btnClass != '' ? settings.btnClass : '') + "'>" + settings.btnLabel + "</a>"
+            "<a id='alert-notify-button' href='#' class='btn" + (settings.btnClass != '' ? ' ' + settings.btnClass : '') + "'>" + settings.btnLabel + "</a>"
         );
         const cancelBtn = $(
-            "<a id='alert-notify-cancel-button' href='#' class='btn" + (settings.cancelBtnClass != '' ? settings.cancelBtnClass : '') + "'>" + settings.cancelBtnLabel + "</a>"
+            "<a id='alert-notify-cancel-button' href='#' class='btn" + (settings.cancelBtnClass != '' ? ' ' + settings.cancelBtnClass : '') + "'>" + settings.cancelBtnLabel + "</a>"
         );
 
         if (!getCookie("cookie-alert-notify-" + settings.name)) {

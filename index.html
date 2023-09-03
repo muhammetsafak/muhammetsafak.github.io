@@ -105,7 +105,7 @@
                           <p>Muhammet ŞAFAK</p>
                       </div>
                       <div class="single-info"><span>Yaş:</span>
-                          <p>30</p>
+                          <p class="developerAge">...</p>
                       </div>
                       <div class="single-info"><span>Yer:</span>
                           <p>İstanbul, Turkey</p>
@@ -783,35 +783,62 @@
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/alert-notify.js"></script>
 <script>
-  $(function(){
-    /*
-    if (localStorage.getItem('theme') !== 'dark') {
-      $('.gg-moon').click();
+    function startsWithZero(num)
+    {
+        return num > -10 && num < 10 ? "0" + num : num;
     }
-    $.alertNotify({
-        name: "maras-depremi-yas",
-        message: "Kahramanmaraş da yaşanan deprem afetinden dolayı sitemizi karartıyor ve sizi de bağış yapmaya davet ediyoruz!",
-        mainStyle: {
-          background: "#F9F7FE",
-          color: "#222",
-          "border-top": "3px solid #8e43e7",
-        },
-        messageStyle: {
-          color: "#8e43e7"
-        },
-        btnClass: "btn-danger",
-        btnLabel: "Bağış Yap",
-        btnStyle: {},
-        btnOnClick: function () {
-          window.open('https://bit.ly/afad-deprem-bagis');
-        },
-        cancelBtn: true,
-        cancelBtnLabel: 'Kapat',
-        cancelBtnClass: 'btn-secondary',
-        cookieTTL: 365
+
+    $(function(){
+
+        let developerAge = $('p.developerAge');
+        let birthDate = new Date('1992-10-24T22:30:00');
+        setInterval(function () {
+            let now = new Date();
+            let diffTotalSecond = Math.floor((now - birthDate) / 1000);
+
+            let years = Math.floor(diffTotalSecond / (86400 * 365));
+            let days = Math.floor(diffTotalSecond / 86400) % 365;
+            let hours = Math.floor((diffTotalSecond % 86400) / 3600);
+            let minutes = Math.floor((diffTotalSecond % 3600) / 60);
+            let seconds = diffTotalSecond % 60;
+            let text = years + " Yıl "
+                + startsWithZero(days) + " Gün "
+                + startsWithZero(hours) + ":"
+                + startsWithZero(minutes) + ":"
+                + startsWithZero(seconds);
+
+            developerAge.text(text);
+        }, 1000);
+
+        /*
+        if (localStorage.getItem('theme') !== 'dark') {
+          $('.gg-moon').click();
+        }
+        $.alertNotify({
+            name: "maras-depremi-yas",
+            message: "Kahramanmaraş da yaşanan deprem afetinden dolayı sitemizi karartıyor ve sizi de bağış yapmaya davet ediyoruz!",
+            mainStyle: {
+              background: "#F9F7FE",
+              color: "#222",
+              "border-top": "3px solid #8e43e7",
+            },
+            messageStyle: {
+              color: "#8e43e7"
+            },
+            btnClass: "btn-danger",
+            btnLabel: "Bağış Yap",
+            btnStyle: {},
+            btnOnClick: function () {
+              window.open('https://bit.ly/afad-deprem-bagis');
+            },
+            cancelBtn: true,
+            cancelBtnLabel: 'Kapat',
+            cancelBtnClass: 'btn-secondary',
+            cookieTTL: 365
+        });
+        */
+
     });
-    */
-  });
 </script>
 </body>
 </html>

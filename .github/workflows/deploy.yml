@@ -1,22 +1,25 @@
-name: PHP Deployment
+name: Deploy PHP Application
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  auto-pull:
-    name: main
-    runs-on: self-hosted
+  deploy:
+    runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - run: |
-          git config user.name muhammetsafak
-          git config user.email info@muhammetsafak.com.tr
-          git config github.token ${{ secrets.GIT_TOKEN }}
-          git pull origin main
-        working-directory: ${{ secrets.REMOTE_PATH }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run SSH command to pull latest code
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          HOST: ${{ secrets.SSH_HOST }}
+          USER: ${{ secrets.SSH_USER }}
+          REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
+        run: |
+          echo "$SSH_PRIVATE_KEY" > private_key
+          chmod 600 private_key
+          ssh -i private_key -o StrictHostKeyChecking=no $USER@$HOST "cd $REMOTE_PATH && git pull origin main"

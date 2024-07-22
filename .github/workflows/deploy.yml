@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: echo "🍏 This job's status is ${{ secrets.SSH_HOST }}. ${{secrets.SSH_KEY}}. ${{secrets.SSH_USERNAME}}."
       - name: Deploy static site
         uses: appleboy/ssh-action@v0.1.2
         with:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
           username: ${{secrets.SSH_USERNAME}}
-
           script: cd /home/web/muhammetsafak.com.tr/public_html && git branch 20240722_1100 && git pull

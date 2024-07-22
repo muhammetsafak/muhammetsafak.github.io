@@ -17,4 +17,6 @@ jobs:
           USER: ${{ secrets.SSH_USER }}
           REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
         run: |
-          ssh -i "$SSH_PRIVATE_KEY" -o StrictHostKeyChecking=no $USER@$HOST "cd $REMOTE_PATH && git pull origin main"
+          echo "$SSH_PRIVATE_KEY" > private_key
+          chmod 600 private_key
+          ssh -i private_key -o StrictHostKeyChecking=no $USER@$HOST "cd $REMOTE_PATH && git pull origin main"

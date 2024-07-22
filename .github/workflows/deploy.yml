@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: Run SSH command to pull latest code
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -20,6 +17,4 @@ jobs:
           USER: ${{ secrets.SSH_USER }}
           REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
         run: |
-          echo "$SSH_PRIVATE_KEY" > private_key
-          chmod 600 private_key
-          ssh -i private_key -o StrictHostKeyChecking=no $USER@$HOST "cd $REMOTE_PATH && git pull origin main"
+          ssh -i "$SSH_PRIVATE_KEY" -o StrictHostKeyChecking=no $USER@$HOST "cd $REMOTE_PATH && git pull origin main"

@@ -9,17 +9,14 @@ on:
       - main
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
+  auto-pull:
+    name: main
+    runs-on: self-hosted
     steps:
-      - name: Deploy to server
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
-          HOST: ${{ secrets.HOST }}
-          USER: ${{ secrets.USER }}
-          REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
-        run: |
-          echo "$SSH_PRIVATE_KEY" > private_key
-          chmod 600 private_key
-          rsync -avz --delete -e "ssh -i private_key -o StrictHostKeyChecking=no" ./ $USER@$HOST:$REMOTE_PATH
+      - uses: actions/checkout@v2
+      - run: |
+          git config user.name muhammetsafak
+          git config user.email info@muhammetsafak.com.tr
+          git config github.token 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
+          git pull origin main
+        working-directory: ${{ secrets.REMOTE_PATH }}

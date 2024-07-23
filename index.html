@@ -98,7 +98,7 @@
               </div>
               <div class="col-lg-7 mt-lg-0 mt-5">
                   <h5 class="title-small mb-2">Senior Software Developer</h5>
-                  <h3 class="title-big">14+ Senedir Yazılım Geliştiriyorum</h3>
+                  <h3 class="title-big">15+ Senedir Yazılım Geliştiriyorum</h3>
                   <p class="mt-4">Aktif olarak PHP kullanarak web geliştirme yapıyor olsam da kendimi programcı olarak tanımlamayı daha uygun buluyorum. Web teknolojilerine adapte olmuş ve uzun yıllardır web üzerinde çalışıyor olsam da bir işlem ünitesine sahip her hangi bir cihazı programlayabilirim.</p>
                   <div class="my-info mt-4">
                       <div class="single-info"><span>İsim:</span>
@@ -810,9 +810,15 @@
             developerAge.text(text);
         }, 1000);
 
+        function setTheme(theme)
+        {
+            let className = theme === 'dark' ? '.gg-moon' : '.gg-sun';
+            $(className).click();
+        }
+
         /*
         if (localStorage.getItem('theme') !== 'dark') {
-          $('.gg-moon').click();
+          setTheme('dark');
         }
         $.alertNotify({
             name: "maras-depremi-yas",

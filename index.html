@@ -576,12 +576,12 @@
 </section>
 <!-- //Footer -->
 
+<canvas id="snowCanvas"></canvas>
 <!-- all js scripts and files here -->
 
 <script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
 
-<script src="assets/js/jquery-3.3.1.min.js"></script><!-- default jQuery -->
-
+<script src="https://assets.websa.com.tr/js/jquery-3.7.1.min.js"></script><!-- default jQuery -->
 <!-- /typig-text-->
 <script>
   const typedTextSpan = document.querySelector(".typed-text");
@@ -816,10 +816,11 @@
             $(className).click();
         }
 
-        /*
+
         if (localStorage.getItem('theme') !== 'dark') {
           setTheme('dark');
         }
+        /*
         $.alertNotify({
             name: "maras-depremi-yas",
             message: "Kahramanmaraş da yaşanan deprem afetinden dolayı sitemizi karartıyor ve sizi de bağış yapmaya davet ediyoruz!",
@@ -846,5 +847,6 @@
 
     });
 </script>
+<script src="./assets/js/snow.js"></script>
 </body>
 </html>

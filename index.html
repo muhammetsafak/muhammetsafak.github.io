@@ -530,7 +530,7 @@
     <div class="footer-content">
       <div class="row">
         <div class="col-lg-8 footer-left">
-          <p class="m-0">Copyright &copy; 2008 - 2024 <i class="fa-solid fa-terminal"></i> Software Engineer Muhammet ŞAFAK</p>
+          <p class="m-0">Copyright &copy; 2008 - <span class="currentYear">2025</span> <i class="fa-solid fa-terminal"></i> Software Engineer Muhammet ŞAFAK</p>
           <p>Powered by <a href="https://github.com"><i class="fa-brands fa-github"></i> github.com</a></p>
         </div>
         <div class="col-lg-4 footer-right text-lg-right text-center mt-lg-0 mt-3">
@@ -816,10 +816,15 @@
             $(className).click();
         }
 
+        $('span.currentYear')
+          .empty()
+          .append((new Date).getFullYear());
 
+        /*
         if (localStorage.getItem('theme') !== 'dark') {
           setTheme('dark');
         }
+        */
         /*
         $.alertNotify({
             name: "maras-depremi-yas",
